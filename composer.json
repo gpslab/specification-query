@@ -1,0 +1,27 @@
+{
+    "name": "gpslab/specification-query",
+    "license": "MIT",
+    "type": "library",
+    "homepage": "https://github.com/gpslab/specification-query",
+    "description": "The simple infrastructure component for use a Doctrine specification as query in CQRS architecture",
+    "autoload": {
+        "psr-4": {
+            "GpsLab\\Component\\Query\\Specification\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GpsLab\\Component\\Query\\Specification\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "require-dev": {
+        "gpslab/cqrs": "dev-master",
+        "gpslab/middleware": "dev-master",
+        "phpunit/phpunit": "~4.8",
+        "scrutinizer/ocular": "~1.3",
+        "satooshi/php-coveralls": "^1.0"
+    }
+}
