@@ -27,7 +27,7 @@ You can use Specifications as a simple query.
 // specification for get contact with id = 123
 $spec = Spec::eq('id', 123);
 
-// cache the result on 1 hour
+// cache the result by 1 hour
 $modifier = Spec::cache(3600);
 
 // make specification query
