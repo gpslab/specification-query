@@ -4,6 +4,14 @@
     "type": "library",
     "homepage": "https://github.com/gpslab/specification-query",
     "description": "The simple infrastructure component for use a Doctrine specification as query in CQRS architecture",
+    "keywords": [
+        "infrastructure",
+        "specification",
+        "cqrs",
+        "query",
+        "doctrine",
+        "doctrine-orm"
+    ],
     "autoload": {
         "psr-4": {
             "GpsLab\\Component\\Query\\Specification\\": "src/"
