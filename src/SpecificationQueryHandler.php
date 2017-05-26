@@ -42,8 +42,8 @@ class SpecificationQueryHandler implements QueryHandler
         }
 
         /* @var $rep EntitySpecificationRepositoryInterface */
-        $rep = $this->em->getRepository($query->getEntity());
+        $rep = $this->em->getRepository($query->entity());
 
-        return $rep->match($query->getSpec(), $query->getModifier());
+        return $rep->match($query->spec(), $query->modifier());
     }
 }

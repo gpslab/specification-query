@@ -45,7 +45,7 @@ class ObviousSpecificationQuery implements SpecificationQuery
     /**
      * @return string
      */
-    public function getEntity()
+    public function entity()
     {
         return $this->entity;
     }
@@ -53,7 +53,7 @@ class ObviousSpecificationQuery implements SpecificationQuery
     /**
      * @return Specification
      */
-    public function getSpec()
+    public function spec()
     {
         return $this->spec;
     }
@@ -61,7 +61,7 @@ class ObviousSpecificationQuery implements SpecificationQuery
     /**
      * @return ResultModifier|null
      */
-    public function getModifier()
+    public function modifier()
     {
         return $this->modifier;
     }

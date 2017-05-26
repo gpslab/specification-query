@@ -19,15 +19,15 @@ interface SpecificationQuery extends Query
     /**
      * @return string
      */
-    public function getEntity();
+    public function entity();
 
     /**
      * @return Specification
      */
-    public function getSpec();
+    public function spec();
 
     /**
      * @return ResultModifier|null
      */
-    public function getModifier();
+    public function modifier();
 }
