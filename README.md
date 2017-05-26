@@ -21,6 +21,77 @@ composer require gpslab/specification-query
 
 ## Usage
 
+You can use Specifications as a simple query.
+
+```php
+// specification for get contact with id = 123
+$spec = Spec::eq('id', 123);
+
+// cache the result on 1 hour
+$modifier = Spec::cache(3600);
+
+// make specification query
+$query = new ObviousSpecificationQuery('AcmeDemo:Contact', $spec, $modifier);
+
+// get contact
+$contact = $query_dispatcher->dispatch($query);
+```
+
+### Custom query
+
+You can create custom query for this case.
+
+```php
+class ContactWithIdentityQuery implements SpecificationQuery
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @param int $id
+     */
+    public function __construct($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function entity()
+    {
+        return 'AcmeDemo:Contact';
+    }
+
+    /**
+     * @return Specification
+     */
+    public function spec()
+    {
+        return Spec::eq('id', $this->id);
+    }
+
+    /**
+     * @return ResultModifier|null
+     */
+    public function modifier()
+    {
+        return Spec::cache(3600);
+    }
+}
+```
+
+And use it
+
+```php
+// make specification query
+$query = new ContactWithIdentityQuery(123);
+
+// get contact
+$contact = $query_dispatcher->dispatch($query);
+```
 
 ## License
 
