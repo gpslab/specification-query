@@ -15,10 +15,11 @@
         }
     },
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=5.5.0",
+        "happyr/doctrine-specification": "^0.7",
+        "gpslab/cqrs": "dev-master"
     },
     "require-dev": {
-        "gpslab/cqrs": "dev-master",
         "gpslab/middleware": "dev-master",
         "phpunit/phpunit": "~4.8",
         "scrutinizer/ocular": "~1.3",
