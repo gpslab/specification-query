@@ -8,10 +8,9 @@
  * @license   http://opensource.org/licenses/MIT
  */
 
-namespace GpsLab\Component\Query\Specification\Handler;
+namespace GpsLab\Component\Query\Specification;
 
 use Doctrine\ORM\EntityManagerInterface;
-use GpsLab\Component\Query\Specification\SpecificationQuery;
 use Happyr\DoctrineSpecification\EntitySpecificationRepositoryInterface;
 use GpsLab\Component\Query\Handler\QueryHandler;
 use GpsLab\Component\Query\Query;
