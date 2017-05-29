@@ -34,7 +34,7 @@ $modifier = Spec::cache(3600);
 $query = new ObviousSpecificationQuery('AcmeDemo:Contact', $spec, $modifier);
 
 // get contact
-$contact = $query_dispatcher->dispatch($query);
+$contact = $query_bus->handle($query);
 ```
 
 ### Custom query
@@ -90,7 +90,7 @@ And use it
 $query = new ContactWithIdentityQuery(123);
 
 // get contact
-$contact = $query_dispatcher->dispatch($query);
+$contact = $query_bus->handle($query);
 ```
 
 ## License
