@@ -24,6 +24,19 @@ composer require gpslab/specification-query
 You can use Specifications as a simple query.
 
 ```php
+use GpsLab\Component\Query\Bus\HandlerLocatedQueryBus;
+use GpsLab\Component\Query\Handler\Locator\DirectBindingQueryHandlerLocator;
+use GpsLab\Component\Query\Specification\SpecificationQueryHandler;
+use GpsLab\Component\Query\Specification\ObviousSpecificationQuery;
+
+// register query handler in handler locator
+$locator = new DirectBindingQueryHandlerLocator();
+$locator->registerHandler(ObviousSpecificationQuery::class, [new SpecificationQueryHandler($em), 'handleSpecification']);
+
+// create bus with query handler locator
+$bus = new HandlerLocatedQueryBus($locator);
+
+
 // specification for get contact with id = 123
 $spec = Spec::eq('id', 123);
 
@@ -32,6 +45,7 @@ $modifier = Spec::cache(3600);
 
 // make specification query
 $query = new ObviousSpecificationQuery('AcmeDemo:Contact', $spec, $modifier);
+
 
 // get contact
 $contact = $query_bus->handle($query);
@@ -86,8 +100,22 @@ class ContactWithIdentityQuery implements SpecificationQuery
 And use it
 
 ```php
+use GpsLab\Component\Query\Bus\HandlerLocatedQueryBus;
+use GpsLab\Component\Query\Handler\Locator\DirectBindingQueryHandlerLocator;
+use GpsLab\Component\Query\Specification\SpecificationQueryHandler;
+use GpsLab\Component\Query\Specification\ObviousSpecificationQuery;
+
+// register query handler in handler locator
+$locator = new DirectBindingQueryHandlerLocator();
+$locator->registerHandler(ContactWithIdentityQuery::class, [new SpecificationQueryHandler($em), 'handleSpecification']);
+
+// create bus with query handler locator
+$bus = new HandlerLocatedQueryBus($locator);
+
+
 // make specification query
 $query = new ContactWithIdentityQuery(123);
+
 
 // get contact
 $contact = $query_bus->handle($query);
