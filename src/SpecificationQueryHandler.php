@@ -12,10 +12,8 @@ namespace GpsLab\Component\Query\Specification;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Happyr\DoctrineSpecification\EntitySpecificationRepositoryInterface;
-use GpsLab\Component\Query\Handler\QueryHandler;
-use GpsLab\Component\Query\Query;
 
-class SpecificationQueryHandler implements QueryHandler
+class SpecificationQueryHandler
 {
     /**
      * @var EntityManagerInterface
@@ -31,16 +29,12 @@ class SpecificationQueryHandler implements QueryHandler
     }
 
     /**
-     * @param Query $query
+     * @param SpecificationQuery $query
      *
      * @return mixed
      */
-    public function handle(Query $query)
+    public function handleSpecification(SpecificationQuery $query)
     {
-        if (!($query instanceof SpecificationQuery)) {
-            return null;
-        }
-
         /* @var $rep EntitySpecificationRepositoryInterface */
         $rep = $this->em->getRepository($query->entity());
 

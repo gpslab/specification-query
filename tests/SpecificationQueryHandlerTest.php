@@ -11,7 +11,6 @@
 namespace GpsLab\Component\Query\Specification;
 
 use Doctrine\ORM\EntityManagerInterface;
-use GpsLab\Component\Query\Query;
 use Happyr\DoctrineSpecification\EntitySpecificationRepositoryInterface;
 use Happyr\DoctrineSpecification\Spec;
 
@@ -33,19 +32,6 @@ class SpecificationQueryHandlerTest extends \PHPUnit_Framework_TestCase
         $this->handler = new SpecificationQueryHandler($this->em);
     }
 
-    public function testHandleNotASpecificationQuery()
-    {
-        /* @var $query \PHPUnit_Framework_MockObject_MockObject|Query */
-        $query = $this->getMock(Query::class);
-
-        $this->em
-            ->expects($this->never())
-            ->method('getRepository')
-        ;
-
-        $this->assertNull($this->handler->handle($query));
-    }
-
     public function testHandle()
     {
         $entity = 'foo';
@@ -53,7 +39,7 @@ class SpecificationQueryHandlerTest extends \PHPUnit_Framework_TestCase
         $modifier = Spec::cache(3600);
         $result = 'bar';
 
-        /* @var $query \PHPUnit_Framework_MockObject_MockObject|Query */
+        /* @var $query \PHPUnit_Framework_MockObject_MockObject|SpecificationQuery */
         $query = $this->getMock(SpecificationQuery::class);
         $query
             ->expects($this->once())
@@ -87,6 +73,6 @@ class SpecificationQueryHandlerTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($rep))
         ;
 
-        $this->assertEquals($result, $this->handler->handle($query));
+        $this->assertEquals($result, $this->handler->handleSpecification($query));
     }
 }
