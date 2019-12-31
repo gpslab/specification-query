@@ -11,8 +11,9 @@
 namespace GpsLab\Component\Query\Specification;
 
 use Happyr\DoctrineSpecification\Spec;
+use PHPUnit\Framework\TestCase;
 
-class ObviousSpecificationQueryTest extends \PHPUnit_Framework_TestCase
+class ObviousSpecificationQueryTest extends TestCase
 {
     public function testHasModifier()
     {
