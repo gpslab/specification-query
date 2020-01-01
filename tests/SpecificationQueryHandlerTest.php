@@ -13,8 +13,9 @@ namespace GpsLab\Component\Query\Specification;
 use Doctrine\ORM\EntityManagerInterface;
 use Happyr\DoctrineSpecification\EntitySpecificationRepositoryInterface;
 use Happyr\DoctrineSpecification\Spec;
+use PHPUnit\Framework\TestCase;
 
-class SpecificationQueryHandlerTest extends \PHPUnit_Framework_TestCase
+class SpecificationQueryHandlerTest extends TestCase
 {
     /**
      * @var \PHPUnit_Framework_MockObject_MockObject|EntityManagerInterface
